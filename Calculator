@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+
+class Clac
+{
+    public static void CalculatorInitiate()
+    {
+      char[] delimiterChars = { ' ', ',', '.', ':', '\t' };
+      List<int> ints = [];
+
+      Console.WriteLine("Enter inputs:");
+      string? result = Console.ReadLine();
+      
+      string[] nums = result!.Split(delimiterChars);
+
+      foreach (var num in nums)
+      {
+        if (int.TryParse(num, out int numValue))
+            {
+              ints.Add(numValue);
+            }
+      }
+      Addition(ints);
+    }
+
+    static void Addition(List <int> nums)
+    {
+      int finalResult = 0;
+      foreach (var num in nums)
+      {
+        finalResult += num;
+      }
+
+      Console.WriteLine($"Result: {finalResult}");
+
+    }
+}
